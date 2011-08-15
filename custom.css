@@ -1,0 +1,31 @@
+#preso {
+  position: relative;
+  top: 25px;
+  background: #fff;
+  width: 950px;
+  height: 525px;
+  margin:auto;
+  overflow:hidden;
+  -webkit-box-shadow:0 0 0px rgba(0,0,0,0.35);
+  -moz-box-shadow:0 0 0px rgba(0,0,0,0.35);
+  box-shadow:0 0 0px rgba(0,0,0,0.35);
+}
+
+.slide {
+  position: relative;
+  top: 25px;
+  width: 950px;
+  height: 525px;
+  margin: auto;
+}
+  
+#footer {
+  top:50px;
+}
+
+blockquote {
+  position:relative;
+  left:50px;
+  width:750px;
+}
+
