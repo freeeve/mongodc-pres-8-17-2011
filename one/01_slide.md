@@ -11,7 +11,7 @@
 >
 
 !SLIDE smbullets
-### Things to worry about in particular for shared hosts: ###
+### Things to worry about for shared hosts: ###
 
 * security
 * access control
@@ -25,6 +25,27 @@
 * the current version of mongo requires that you configure separate services on alternative ports for each user, for the best security.
 
 !SLIDE smbullets
+### MongoHQ -- how do they have secure 16MB and 256MB non-dedicated services? ###
+
+* mongohq appears to have broken the show dbs/show collections functionality, and only lets you access your own db. 
+* in short, it looks like they've hacked some sort of real access control using shared mongo services. 
+* this is probably why their paid shared mongodb instances are running 1.6.5 instead of something more current.
+* random: did you know that they recently acquired their competitor, MongoMachine?
+
+!SLIDE smbullets
 ### access control ###
 
-*  
+*
+
+!SLIDE smbullets
+### rock mongo ###
+
+* 
+
+!SLIDE smbullets
+### gotchas and surprises ### 
+
+* 
+
+!SLIDE smbullets
+### wishlist ###

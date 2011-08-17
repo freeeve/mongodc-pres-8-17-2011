@@ -29,3 +29,21 @@ blockquote {
   width:750px;
 }
 
+.bullets ul {
+  list-style-type:disc;
+  list-style-position:inside;
+}
+
+.smbullets ul {
+  list-style-type:disc;
+  list-style-position:inside;
+}
+
+.bullets ul li {
+  text-align: left;
+}
+
+.smbullets ul li {
+  text-align: left;
+}
+
