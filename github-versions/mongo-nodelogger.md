@@ -1,8 +1,11 @@
 # nodelogger: a piped logger for apache -- writes geolocation and access log data to mongodb 
 
 > Wes Freeman
+>
 > wes@skeweredrook.com
+>
 > @wefreema
+>
 > http://github.com/wfreeman
 
 ## A Problem 
