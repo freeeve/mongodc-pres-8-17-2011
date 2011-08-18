@@ -1,12 +1,9 @@
 # nodelogger: a piped logger for apache -- writes geolocation and access log data to mongodb 
 
-> Wes Freeman
->
-> wes@skeweredrook.com
->
-> @wefreema
->
-> http://github.com/wfreeman
+Wes Freeman   
+wes@skeweredrook.com   
+@wefreema   
+http://github.com/wfreeman  
 
 ## A Problem 
 
@@ -83,6 +80,6 @@ db.open(function (err, db) {
 ## Future plans
 * Error log capability
 * Node.js--sockets-based log viewer
-> * Searching
-> * Tail -f capability
-> * Heatmap with world map view; shows where your visitors are coming from
+  * Searching
+  * Tail -f capability
+  * Heatmap with world map view; shows where your visitors are coming from
