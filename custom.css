@@ -39,6 +39,10 @@ blockquote {
   list-style-position:inside;
 }
 
+.smbullets blockquote ul li {
+  font-size: 32px;
+}
+
 .bullets ul li {
   text-align: left;
 }
@@ -46,4 +50,7 @@ blockquote {
 .smbullets ul li {
   text-align: left;
 }
-
+ 
+.smbullets code {
+  font-size:20pt;
+}

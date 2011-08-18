@@ -1,5 +1,5 @@
 !SLIDE 
-## MongoDB in a shared hosting environment ##
+# MongoDB in a                                 shared hosting environment #
 
 > Wes Freeman 
 >
@@ -11,41 +11,46 @@
 >
 
 !SLIDE smbullets
-### Things to worry about for shared hosts: ###
+# Topics for shared hosts #
 
-* security
-* access control
-* memory usage?
-
-!SLIDE smbullets
-### Shared host security ###
-
-* mongodb is not secure out of the box!
-* once you are authenticated to a mongod process, you can access any database within the service (this is bad)
-* the current version of mongo requires that you configure separate services on alternative ports for each user, for the best security.
+* Security
+* Access control
+* Speculation on MongoHQ's inner workings
+* Rock Mongo (PHP-based MongoDB client/query browser)
+* Wishlist
 
 !SLIDE smbullets
-### MongoHQ -- how do they have secure 16MB and 256MB non-dedicated services? ###
+# Shared host security #
 
-* mongohq appears to have broken the show dbs/show collections functionality, and only lets you access your own db. 
-* it looks like they've hacked some sort of real access control using shared mongo services. 
-* this is probably why their paid shared mongodb instances are running 1.6.5 instead of something more current.
-* random: did you know that they recently acquired their competitor, MongoMachine?
+* Mongodb is not secure out of the box!
+* Documentation recommends isolated "trusted" environment--configure your firewall/network accordingly.
 
 !SLIDE smbullets
-### access control ###
+# Access control #
 
-*
-
-!SLIDE smbullets
-### rock mongo ###
-
-* 
+* Once you are authenticated to a mongod process, you can access any database within the service.
+> * This is bad from a shared host perspective.
+* The current version of mongo requires that you configure separate services on alternative ports for each user, for the best security.
+* Note: Replica Set authentication is separate from user authentication.
 
 !SLIDE smbullets
-### gotchas and surprises ### 
-
-* 
+### MongoHQ -- How do they have secure 16MB and 256MB non-dedicated services? 
+* MongoHQ appears to have broken the show dbs/show collections functionality, and only lets you access your own db. 
+> * It looks like they've hacked some better access control for shared mongo services. 
+> * This is probably why their paid shared mongodb instances are running 1.6.5 instead of something more current.
+* Recent News: did you know that they recently acquired their competitor, MongoMachine?
 
 !SLIDE smbullets
-### wishlist ###
+# Rock Mongo #
+
+* Rock Mongo is to mongodb what phpMyAdmin is to mysql.
+* It's a php-based mongodb client, for editing/querying data.
+* Gives access to mongodb without opening mongodb ports, and doesn't require ssh access.
+* Separate access control--you configure users for Rock Mongo separately.
+* You probably want to put it behind SSL.
+
+!SLIDE smbullets
+# Wishlist #
+
+* More functional access control to allow finer-grained privileges.
+* Control for memory usage limits.
