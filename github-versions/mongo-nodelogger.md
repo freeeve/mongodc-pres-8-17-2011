@@ -1,15 +1,9 @@
-# nodelogger: a piped logger for apache #
-## writes geolocation and access log data to mongodb 
-
+# nodelogger: a piped logger for apache -- writes geolocation and access log data to mongodb 
 
 > Wes Freeman
->
 > wes@skeweredrook.com
->
 > @wefreema
->
 > http://github.com/wfreeman
->
 
 ## A Problem 
 
@@ -31,54 +25,54 @@
 * Connect to Mongo, insert a simple document with the log & location information.
 
 ## Listening on standard input in Node
-    ``` javascript
-    var stdin = process.stdin;
-    stdin.resume(); 
-    stdin.on('data', function (chunk) { 
-      var line = chunk.toString().replace(/\n/, '\\n');
-      console.log('stdin: ' + line);
-      /* do stuff here */
-    }).on('end', function () { 
-      console.log('stdin:closed exiting');
-    });
-    ```
+``` javascript
+var stdin = process.stdin;
+stdin.resume(); 
+stdin.on('data', function (chunk) { 
+  var line = chunk.toString().replace(/\n/, '\\n');
+  console.log('stdin: ' + line);
+  /* do stuff here */
+}).on('end', function () { 
+  console.log('stdin:closed exiting');
+});
+```
 
 ## Getting Location from IP
-    ``` javascript
-    var GeoIP = require('geoip');
-    var City = GeoIP.City;
-    var city = new City('./GeoLiteCity.dat');
-    ...
-    city_obj = city.lookupSync(ipstr),
-    lat = city_obj.latitude;
-    lon = city_obj.longitude;
-    ```
+```javascript
+var GeoIP = require('geoip');
+var City = GeoIP.City;
+var city = new City('./GeoLiteCity.dat');
+...
+city_obj = city.lookupSync(ipstr),
+lat = city_obj.latitude;
+lon = city_obj.longitude;
+```
 
 ## MongoDB-node-native driver
-    ``` javascript
-    var MongoDB = require('mongodb'),
-      Db = MongoDB.Db,
-      Server = MongoDB.Server;
-    db = new Db('nodelogs', 
-      new Server(host, port, {}), {native_parser: true});
-    ```
+```javascript
+var MongoDB = require('mongodb'),
+  Db = MongoDB.Db,
+  Server = MongoDB.Server;
+db = new Db('nodelogs', 
+  new Server(host, port, {}), {native_parser: true});
+```
 
 ## Inserting into Mongo
-    ``` javascript
-    db.open(function (err, db) {
-      db.collection(vhost, function (err, collection) {      
-        collection.insert({
-          'vhost': vhost,
-          'ip': line_arr[1],
-          'url': line_arr[7],
-          'dt': new Date(),
-          'lat': lat,
-          'lon': lon
-        });
-        db.close();
-      });
+```javascript
+db.open(function (err, db) {
+  db.collection(vhost, function (err, collection) {      
+    collection.insert({
+      'vhost': vhost,
+      'ip': line_arr[1],
+      'url': line_arr[7],
+      'dt': new Date(),
+      'lat': lat,
+      'lon': lon
     });
-    ```
+    db.close();
+  });
+});
+```
 
 ## Putting it all together
 * [https://github.com/wfreeman/nodelogger/blob/master/nodelogger.js](https://github.com/wfreeman/nodelogger/blob/master/nodelogger.js)
